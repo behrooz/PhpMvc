@@ -7,6 +7,8 @@ if($path_info != "/")
 
 }
 
+print_r($path_info);
+
 require_once('core/InitClass.php');
 $init = new InitClass();
 $init->getControllerList();

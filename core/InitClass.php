@@ -26,17 +26,24 @@
 
         public function getControllerInstance($class)
         {            
-            $currentController = $this->controllers_array[$class.'.php'];
-            require_once(__DIR__.'/../Controllers/'. $currentController);
 
-            $controller = basename($class,'.php');
-            
-            if(class_exists($controller)){
+            if(array_key_exists($class.'.php',$this->controllers_array))
+            {
+                $currentController = $this->controllers_array[$class.'.php'];
+                require_once(__DIR__.'/../Controllers/'. $currentController);
+    
+                $controller = basename($class,'.php');
                 
-                $reflect = new ReflectionClass($class);
-                $instance = $reflect->newInstance();
-                echo $instance->index();
+                if(class_exists($controller)){
+                    
+                    $reflect = new ReflectionClass($class);
+                    $instance = $reflect->newInstance();
+                    echo $instance->index();
+                }
+            }else{
+                throw new Exception("Controller does not exist");
             }
+            
 
             return null;
         }
