@@ -3,7 +3,8 @@
     class InitClass{
 
         private $controllerPath = "../Controllers";
-        private $controllers_array = [];        
+        private $controllers_array = [];     
+        private $path = [];   
 
         public function __get($property) {            
             return $this->$property;            
@@ -11,6 +12,29 @@
         
         public function __set($property, $value) {           
             $this->$property = $value;    
+        }
+
+        public function parseRequest($path_info){            
+            $classPath = new stdClass();
+            if(count($path_info) > 0 )
+            {
+                for($i = 0; $i < count($path_info);$i++){
+                    
+                    if($i == 0){
+                        $classPath->controller =  $path_info[$i];
+                    }
+
+                    if($i == 1){
+                        $classPath->method =  $path_info[$i];
+                    }
+
+                    if($i > 1){
+                        $classPath->param =  $path_info[$i];
+                    }
+                }        
+            }
+
+            print_r($classPath);
         }
 
         public function getControllerList()

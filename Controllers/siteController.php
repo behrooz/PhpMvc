@@ -7,6 +7,6 @@ class siteController
     */
     public function index()
     {
-        return "site index";
+        return "this is site index";
     }
 }
