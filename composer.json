@@ -1,0 +1,9 @@
+{
+  "name": "tips/mvc",
+  "autoload": {
+    "psr-4": {
+      "app\\": "./"
+    }
+  },
+  "require": {}
+}
