@@ -11,7 +11,7 @@ class Application
     public Response $response;
     public static Application $app;
     public Controller $controller;
-    private Database $db;
+    public Database $db;
 
     public function __construct($rootPath, array $config)
     {

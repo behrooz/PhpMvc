@@ -2,15 +2,21 @@
 
 namespace app\models;
 
+use app\core\DBModel;
 use app\core\Model;
 
-class RegisterModel extends Model
+class User extends DBModel
 {
     public string $firstname = '';
     public string $lastname = '';
     public string $email = '';
     public string $password = '';
     public string $passwordConfirm = '';
+
+    public function tableName(): string
+    {
+        return 'user';
+    }
 
     public function register(){
 
