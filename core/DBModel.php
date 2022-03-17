@@ -6,7 +6,7 @@ abstract class DBModel extends Model
 {
     abstract public function tableName():string;
     abstract public function attributes(): array;
-
+    
     public function save()
     {
         $tableName = $this->tableName();

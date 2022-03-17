@@ -40,7 +40,7 @@ class Field
         
 
         ',
-        $this->attribute,
+        $this->model->lable()[$this->attribute] ?? $this->attribute,
         $this->type,
         $this->attribute,
         $this->model->{$this->attribute},

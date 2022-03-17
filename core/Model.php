@@ -23,6 +23,11 @@ abstract class Model
     }
 
     abstract public function rules():array;
+
+    public function lable() : array{
+        return [];
+    }
+
     public function  validate()
     {
         foreach ($this->rules() as $attribute =>$rules){
