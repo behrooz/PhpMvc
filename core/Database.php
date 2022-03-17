@@ -75,4 +75,8 @@ class Database
         echo '['.date('Y-m-d H:i:s').'] - ' .$message;
     }
 
+    public function prepare($sql){
+        return $this->pdo->prepare($sql);
+    }
+
 }
